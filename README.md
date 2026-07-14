@@ -1,2 +1,272 @@
-# wonju2
-ㅁㄴㄹㅇㅁㄴㄹㅇㅁㄴㄹㅁㄴㅇㄹㅁㄴㄹ
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>실습 페이지 - 최형욱</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #171225;
+    --bg-soft: #1f1836;
+    --card: #241c3f;
+    --ink: #f3efe6;
+    --ink-dim: #b9b0d8;
+    --amber: #ffb84d;
+    --mint: #5eead4;
+    --pink: #ff6b9d;
+    --rule: rgba(243,239,230,0.14);
+    --max: 780px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(255,184,77,0.10), transparent 45%),
+      radial-gradient(circle at 85% 20%, rgba(94,234,212,0.08), transparent 40%),
+      var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.75;
+    font-size: 16px;
+  }
+
+  header.hero{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 72px 24px 40px;
+    text-align: left;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    color: var(--amber);
+    background: rgba(255,184,77,0.12);
+    border: 1px solid rgba(255,184,77,0.35);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+  }
+
+  h1{
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: 400;
+    font-size: clamp(34px, 6vw, 54px);
+    line-height: 1.25;
+    margin: 0 auto 20px;
+    max-width: var(--max);
+    padding: 0 24px;
+    color: var(--ink);
+  }
+
+  header.hero h1{ padding: 0; }
+  h1 .accent{ color: var(--amber); }
+
+  .subline{
+    color: var(--ink-dim);
+    font-size: 17px;
+    margin: 0;
+  }
+
+  hr{
+    border: none;
+    border-top: 1px solid var(--rule);
+    max-width: var(--max);
+    margin: 56px auto;
+  }
+
+  p{
+    max-width: var(--max);
+    margin: 0 auto 18px;
+    padding: 0 24px;
+  }
+
+  h2{
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: 400;
+    font-size: clamp(24px, 4vw, 30px);
+    max-width: var(--max);
+    margin: 0 auto 20px;
+    padding: 0 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  h3{
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--mint);
+    max-width: var(--max);
+    margin: 28px auto 12px;
+    padding: 0 24px;
+  }
+
+  ul{
+    max-width: var(--max);
+    margin: 0 auto 18px;
+    padding: 0 24px 0 44px;
+  }
+
+  li{ margin-bottom: 8px; }
+  li::marker{ color: var(--amber); font-weight: 700; }
+
+  a{
+    color: var(--mint);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(94,234,212,0.4);
+    transition: border-color .15s ease, color .15s ease;
+  }
+  a:hover{ color: var(--pink); border-color: var(--pink); }
+  a:focus-visible{ outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  img{
+    display:block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    margin: 20px auto 28px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  img[width]{ max-width: 500px; }
+
+  footer{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 8px 24px 80px;
+    color: var(--ink-dim);
+    font-size: 14px;
+    text-align: center;
+  }
+
+  @media (max-width: 600px){
+    header.hero{ padding: 48px 20px 28px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+.steam-gallery{
+  max-width: var(--max);
+  margin: 0 auto 28px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.steam-gallery img{
+  margin: 0;
+  width: 100%;
+  height: auto;      /* 높이 고정 X, 원본 비율 그대로 */
+  border-radius: 10px;
+}
+
+@media (max-width: 600px){
+  .steam-gallery{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+}
+.inline-img-sm{
+  max-width: 400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thank-you{
+  max-width: 800px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="eyebrow">원주고등학교 · 2학년 6반</span>
+  <h1>최형욱의 <span class="accent">페이지</span></h1>
+  <p class="subline">영상 편집, 수학, 그리고 게임을 좋아하는 학생입니다.</p>
+</header>
+
+<img src="images/다운로드.webp" alt="프로필 이미지" width="500">
+
+<h1>소개</h1>
+<p>안녕하세요 저는 원주고등학교 2학년 6반 최형욱이라고 합니다.</p>
+<p>저의 관심분야(관심학과)는 응용수학쪽으로 관심있어 합니다.</p>
+<hr>
+
+<h1>나의 취미</h1>
+<ul>
+    <li>영상편집</li>
+    <li>수학에 대한 영상 또는 역사에 대해 알아보기</li>
+    <li>다양한 활동 시도해보기</li>
+    <li>게임하기</li>
+</ul>
+<hr>
+
+<h2><span style="color:var(--amber)">01</span> 영상 편집</h2>
+<p>저는 평소에 취미로 프리미어 프로를 이용하여 영상을 만들고 있습니다.</p>
+<p>친구들과 함께 게임을 한 영상을 녹화하고 제 친구들이 재미있게 볼수 있도록 저만의 스타일로 영상 편집을 하곤 합니다.</p>
+<p>물론 아직 편집 실력이 부족해서 여러가지의 영상들을 보면서 편집기법이나 이런 장면에서는 어떻게 편집 하였는지에 대해서 분석하고 편집을 잘 하는 사람들을 존경합니다.</p>
+<img src="images/비디오.gif" alt="영상 편집 작업 화면" class="inline-img-sm">
+<p>(인스타 스토리중 하나)</p>
+
+<h3>1.1 유튜브</h3>
+<p>그리고 아주 가끔씩 유튜브에 영상을 올리기도 합니다.
+    <a href="https://www.youtube.com/@puddingPD1" target="_blank" rel="noopener">유튜브계정</a>으로 가는 링크
+</p>
+<hr>
+
+<h2><span style="color:var(--amber)">02</span> 수학에 대한 영상 또는 역사에 대해 알아보기</h2>
+<img src="images/math.jpg" alt="수학 관련 이미지" width="700">
+<p>아까 위에서 말했던 것 처럼 저는 수학쪽에 관심이 있습니다.</p>
+<p>그래서 가끔 유튜브로 수학이랑 관련된 영상을 보곤 하는데 수학에 대한 위대함, 그리고 이런 영상을 볼때마다 너무 재미있고 흥미로운 내용 때문에 취미로 가끔씩 보곤 합니다.</p>
+<hr>
+
+<h2><span style="color:var(--amber)">03</span> 다양한 활동 시도해보기</h2>
+<p>위에 있는 두개의 취미 말고 더 다양한 취미를 가지고 싶어서 평소에 다양한 시도를 하고 있습니다!</p>
+<p>전엔 한번 처음으로 뜨개질을 해봤는데 매우 재밌었고 처음 하는것 치고는 괜찮은 결과물이 나왔던 것 같습니다.</p>
+<p>그리고 에펙(애프터 이펙트)를 한번 사용 해봤는데 생각보다 좀 많이 어려웠습니다.</p>
+<hr>
+
+<h2><span style="color:var(--amber)">04</span> 게임하기</h2>
+<p>컴퓨터로 할수 있는 대부분의 게임들을 합니다.</p>
+<p>롤, 롤체, 옵치, 마크 등..</p>
+<img src="images/lol.png" width="500" alt="리그오브레전드 스크린샷">
+<img src="images/tft.png" alt="롤체 스크린샷" width="500">
+<p>물론 둘다 플딱이 입니다.</p>
+
+<h3>4.1 스팀게임</h3>
+<div class="steam-gallery">
+  <img src="images/steam1.png" alt="스팀 라이브러리 스크린샷 1">
+  <img src="images/steam2.png" alt="스팀 라이브러리 스크린샷 2">
+  <img src="images/steam4.png" alt="스팀 라이브러리 스크린샷 3">
+</div>
+
+<hr>
+<h2><span style="color:var(--amber)">05</span> 마치며..</h2>
+<p>지금까지 최형욱의 소개 페이지였습니다. 끝까지 봐주셔서 감사합니다.</p>
+<img src="images/thank you.gif" alt="감사합니다" class="thank-you">
+
+<footer>© 최형욱 · 원주고등학교</footer>
+
+</body>
+</html>
